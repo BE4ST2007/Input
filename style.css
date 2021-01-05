@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.input{
+    margin: auto;
+    width: 50%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.input input{
+    width: 100%;
+    height: 100%;
+    color: rgb(90, 90, 110);
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.input label{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #000;
+}
+
+.input label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid rgb(95, 170, 210);
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+.content-name{
+    position: absolute;
+    bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.input input:focus + .input-name .content-name, .input input:valid + .input-name .content-name{
+    font-size: 14px;
+    color: rgb(95, 170, 210);
+    transform: translateY(-150%);
+}
+
+.input input:focus + .input-name::after, .input input:valid + .input-name::after{
+    transform: translateX(0%);
+}
